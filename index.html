@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <meta charset="UTF-8">
+    <title>minhas tarefas</title>
+    <style>
+        *{
+         box-sizing: border-box;
+         margin: 0;
+        }
+        body{
+            border: 3px solid black;
+            min-height: 100vh;
+            font-family: monospace;
+            display: flex;
+            flex-direction:column;
+        }
+
+        header {
+            border: 2px solid red;
+            background: black;
+            color: gold;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        main{
+            flex: auto;
+            border: 2px solid red;
+            background: black;
+            color: white;
+            padding: 20px;
+        }
+
+        main ul{
+            padding: 0;
+            list-style:square;
+        }
+
+        main li{
+            border-bottom: 1px solid red;
+            padding: 5px 0;
+            border-radius: 5px;
+        }
+
+        footer{
+            border: 3px solid black;
+            display: flex;
+            background: black;
+            color: white;
+        }
+
+        footer input{
+            flex: auto;
+            padding: 5px;
+        }
+
+    </style>
+    <style>
+        button{
+            border-radius: 5px;
+            border: 2px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1> MINHAS TAREFAS📝</h1>
+    </header>
+    <main>
+        <ul></ul>
+    </main>
+    <footer>
+        <input>
+    <button onclick="add()">Adicionar Tarefa</button>
+    </footer>
+    <script>
+
+        //estado da aplicação
+        const tarefas = ['BEM-VINDO AO SITE MINHAS TAREFAS😎','ADICIONE SUA PRIMEIRA TAREFA:' ]
+        
+        //alteradores de estado da aplicação
+        function add() {
+            const input = document.querySelector("input")
+            const tarefa = input.value
+            tarefas.push(tarefa)
+            input.value = ""
+            render()
+            }
+
+            //mostrar estado na tela
+            function render() {
+                const ul = document.querySelector("ul")
+                ul.innerHTML = null
+
+                tarefas.forEach(function(tarefa){
+                    console.log(tarefa)
+                    const li = document.createElement("li")
+                li.innerText = tarefa
+                ul.appendChild(li)
+
+                })
+
+                
+
+            }
+      //iniciar
+      render()
+    </script>
+</body>
+
+</html>
